@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><sequence xmlns="http://ws.apache.org/ns/synapse" name="convert">
+    <payloadFactory media-type="xml">
+        <format>
+            <am:fault xmlns:am="http://wso2.org/apimanager">
+                <am:code>$1</am:code>
+                <am:type>Status report</am:type>
+                <am:message>Runtime Error</am:message>
+                <am:description>$2</am:description>
+            </am:fault>
+        </format>
+        <args>
+            <arg evaluator="xml" expression="$ctx:ERROR_CODE"/>
+            <arg evaluator="xml" expression="$ctx:ERROR_MESSAGE"/>
+        </args>
+    </payloadFactory>
+    <property name="RESPONSE" value="true"/>
+    <header name="To" action="remove"/>
+    <property name="HTTP_SC" value="555" scope="axis2"/>
+    <property name="NO_ENTITY_BODY" scope="axis2" action="remove"/>
+    <property name="ContentType" scope="axis2" action="remove"/>
+    <property name="Authorization" scope="transport" action="remove"/>
+    <property name="Access-Control-Allow-Origin" value="*" scope="transport"/>
+    <property name="Host" scope="transport" action="remove"/>
+    <property name="Accept" scope="transport" action="remove"/>
+    <property name="X-JWT-Assertion" scope="transport" action="remove"/>
+    <property name="messageType" value="application/json" scope="axis2"/>
+    <send/>
+</sequence>
