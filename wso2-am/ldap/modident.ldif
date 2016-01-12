@@ -1,0 +1,32 @@
+dn: cn=wso2person,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: wso2person
+olcObjectClasses: ( 1.3.6.1.4.1.37505.1.1
+    NAME 'wso2Person'
+    DESC 'wso2Person'
+    SUP inetOrgPerson
+    STRUCTURAL
+    MAY  ( gender $ country $ nickName $ timeZone $ dateOfBirth $ role $ im $ url $ otherPhone $ privatePersonalIdentifier $ profileconfiguration $ prefferedLanguage)
+ )
+
+dn: cn=scimperson,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: scimperson
+olcObjectClasses: ( 1.3.6.1.4.1.37505.1.100
+    NAME 'scimPerson'
+    DESC 'scimPerson'
+    SUP wso2Person
+    STRUCTURAL
+    MAY  ( scimId $ externalId $ createdDate $ lastModifiedDate $ location $ formattedName $ honoricPrefix $ honoricSuffix $ userType $ local $ active $ workEmail $ homeEmail $ otherEmail $ phoneNumbers $ workPhone $ imGtalk $ imSkype $ photos $ photoUrl $ thumbnail $ addresses $ formattedAddress $ localityAddress $ region )
+ )
+
+dn: cn=identityperson,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: identityperson
+olcObjectClasses: ( 1.3.6.1.4.1.37505.1.101
+    NAME 'identityPerson'
+    DESC 'identityPerson'
+    SUP scimPerson
+    STRUCTURAL
+    MAY  ( primaryChallenges $ challenges $ firstChallenge $ secondChallenge $ oneTimePassword $ accountLock $ temporaryEmail $ recoveryEmail $ passwordChangeRequired $ passwordTimestamp $ temporaryLock $ lastFailedAttemptTime $ failedLoginAttempts $ lastLogonTime $ unlockTime )
+ )

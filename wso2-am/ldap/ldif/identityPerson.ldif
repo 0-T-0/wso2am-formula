@@ -1,0 +1,104 @@
+dn: cn=identityperson,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: identityperson
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.46
+        NAME 'primaryChallenges'
+        DESC 'primaryChallenges'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.47
+        NAME 'challenges'
+        DESC 'challenges'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.48
+        NAME 'firstChallenge'
+        DESC 'firstChallenge'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.49
+        NAME 'secondChallenge'
+        DESC 'secondChallenge'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.50
+        NAME 'oneTimePassword'
+        DESC 'oneTimePassword'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.51
+        NAME 'accountLock'
+        DESC 'accountLock'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.52
+        NAME 'temporaryEmail'
+        DESC 'temporaryEmail'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.53
+        NAME 'recoveryEmail'
+        DESC 'recoveryEmail'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.54
+        NAME 'passwordChangeRequired'
+        DESC 'passwordChangeRequired'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.55
+        NAME 'passwordTimestamp'
+        DESC 'passwordTimestamp'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.56
+        NAME 'temporaryLock'
+        DESC 'temporaryLock'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.57
+        NAME 'lastFailedAttemptTime'
+        DESC 'lastFailedAttemptTime'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.58
+        NAME 'failedLoginAttempts'
+        DESC 'failedLoginAttempts'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.59
+        NAME 'lastLogonTime'
+        DESC 'lastLogonTime'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+olcAttributeTypes: ( 1.3.6.1.4.1.37505.1.60
+        NAME 'unlockTime'
+        DESC 'unlockTime'
+        EQUALITY caseIgnoreMatch
+        SUBSTR caseIgnoreSubstringsMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{1024} )
+
+dn: cn=identityperson,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: identityperson
+olcObjectClasses: ( 1.3.6.1.4.1.37505.1.101
+    NAME 'identityPerson'
+    DESC 'identityPerson'
+    SUP scimPerson
+    STRUCTURAL
+    MAY  ( primaryChallenges $ challenges $ firstChallenge $ secondChallenge $ oneTimePassword $ accountLock $ temporaryEmail $ recoveryEmail $ passwordChangeRequired $ passwordTimestamp $ temporaryLock $ lastFailedAttemptTime $ failedLoginAttempts $ lastLogonTime $ unlockTime )
+ )

@@ -1,0 +1,36 @@
+dn: olcDatabase={1}monitor,cn=config
+changetype: modify
+replace: olcAccess
+olcAccess: {0}to * 
+  by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth" read 
+  by dn.base="cn=Manager,dc=wso2,dc=org" read 
+  by * none
+
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcSuffix
+olcSuffix: dc=wso2,dc=org
+
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcRootDN
+olcRootDN: cn=Manager,dc=wso2,dc=org
+
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcRootPW
+# paste below Manager's encrypted password (current is 'admin')
+olcRootPW: {SSHA}XUNgNkwSGl5Soqx+6+F0GTn3ve0G/viv
+
+dn: olcDatabase={2}hdb,cn=config
+add: olcAccess
+olcAccess: {0}to attrs=userPassword 
+  by dn="cn=Manager,dc=wso2,dc=org" write 
+  by anonymous auth 
+  by self write 
+  by * none 
+olcAccess: {1}to dn.base="" 
+  by * read
+olcAccess: {2}to * 
+  by dn="cn=Manager,dc=wso2,dc=org" write 
+  by * read

@@ -1,0 +1,19 @@
+dn: dc=wso2,dc=org
+objectClass: top
+objectClass: dcObject
+objectclass: organization
+o: Wso2 Users
+dc: wso2
+
+dn: cn=Manager,dc=wso2,dc=org
+objectClass: organizationalRole
+cn: Manager
+description: Directory Manager
+
+dn: ou=Users,dc=wso2,dc=org
+objectClass: organizationalUnit
+ou: Users
+
+dn: ou=Groups,dc=wso2,dc=org
+objectClass: organizationalUnit
+ou: Groups

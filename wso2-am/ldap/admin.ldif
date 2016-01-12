@@ -1,0 +1,12 @@
+version: 1
+
+dn: uid=admin,ou=Users,dc=wso2,dc=org
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+cn: admin
+sn: admin
+uid: admin
+userPassword:: YWRtaW4=
+

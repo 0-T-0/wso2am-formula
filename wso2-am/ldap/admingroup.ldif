@@ -1,0 +1,7 @@
+version: 1
+
+dn: cn=admin,ou=Groups,dc=wso2,dc=org
+objectClass: groupOfNames
+cn: admin
+member: uid=admin,ou=Users,dc=wso2,dc=org
+
