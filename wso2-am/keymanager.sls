@@ -1,9 +1,10 @@
+{% import 'wso2-am/settings.sls' as settings %}
 include:
   - wso2-am/base
 
 keymanager_confs:
   file.recurse:
-    - name: /opt/wso2am-1.9.1/repository
+    - name: {{ settings.wso2_root_dir }}/wso2am-1.9.1/repository
     - source: salt://wso2-am/files/keymanager/repository
     - template: jinja
     - user: wso2

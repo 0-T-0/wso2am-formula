@@ -1,9 +1,10 @@
+{% import 'wso2-am/settings.sls' as settings %}
 include:
   - wso2-am/base
 
 gateway_confs:
   file.recurse:
-    - name: /opt/wso2am-1.9.1/repository
+    - name: {{ settings.wso2_root_dir }}/wso2am-1.9.1/repository
     - source: salt://wso2-am/files/gateway/repository
     - template: jinja
     - user: wso2
@@ -26,4 +27,4 @@ gateway_confs:
     - require:
       - file: /etc/systemd/system/wso2am-gateway.service
     - watch:
-      - file: /opt/wso2am-1.9.1/*
+      - file: {{ settings.wso2_root_dir }}/wso2am-1.9.1/*
