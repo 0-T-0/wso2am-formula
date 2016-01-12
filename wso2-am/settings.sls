@@ -11,6 +11,6 @@
 {%- set admin_user = salt['pillar.get']('wso2am:admin_user', 'admin') %}
 {%- set admin_password = salt['pillar.get']('wso2am:admin_password', 'admin') %}
 
-{%- set wso2_root_dir = salt['pillar.get']('wso2am:root_dir', '{{ settings.wso2_root_dir }}') %}
+{%- set wso2_root_dir = salt['pillar.get']('wso2am:root_dir', '/opt') %}
 
 {%- set wso2_file = salt['pillar.get']('wso2am:package', 'salt://wso2-am/files/wso2am-1.9.1.zip') %}
