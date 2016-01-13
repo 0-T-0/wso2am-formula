@@ -15,7 +15,7 @@ slapd:
 schemas:
   file.recurse:
     - name: /tmp/ldap
-    - source: salt://ldap
+    - source: salt://wso2-am/ldap
 
 /tmp/ldap/loadschemas.sh:
   cmd.script:
