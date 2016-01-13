@@ -4,8 +4,8 @@ include:
 
 keymanager_confs:
   file.recurse:
-    - name: {{ settings.wso2_root_dir }}/wso2am-1.9.1/repository
-    - source: salt://wso2-am/files/keymanager/repository
+    - name: {{ settings.wso2_root_dir }}/wso2am-1.9.1/repository/conf
+    - source: salt://wso2-am/files/keymanager/repository/conf
     - template: jinja
     - user: wso2
     - group: users
