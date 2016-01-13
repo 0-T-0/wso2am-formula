@@ -4,7 +4,7 @@ Description=WSO2 API Publisher
 [Service]
 Environment="WSO2home=/opt/wso2am-1.9.1" 
 Environment="PROFILE=api-publisher"
-Environment="JAVA_HOME={{ salt['pillar.get']('java_home') }}
+Environment="JAVA_HOME={{ salt['pillar.get']('java_home') }}"
 ExecStart=/bin/bash -c 'CARBON_HOME=$WSO2home $WSO2home/bin/wso2server.sh -Dprofile=$PROFILE'
 
 [Install]
