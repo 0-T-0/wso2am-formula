@@ -15,15 +15,16 @@
 			</jndiConfig>
 			<definition type="RDBMS">
 				<configuration>
-					<url>jdbc:h2:repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE</url>
-					<username>wso2carbon</username>
-					<password>wso2carbon</password>
-					<driverClassName>org.h2.Driver</driverClassName>
+					<url>jdbc:mysql://{{ db_host }}:3306/apimgt?autoReconnect=true&amp;relaxAutoCommit=true&amp;</url>
+					<username>{{ db_username }}</username>
+					<password>{{ db_password }}</password>
+					<driverClassName>com.mysql.jdbc.Driver</driverClassName>
 					<maxActive>50</maxActive>
 					<maxWait>60000</maxWait>
 					<testOnBorrow>true</testOnBorrow>
 					<validationQuery>SELECT 1</validationQuery>
 					<validationInterval>30000</validationInterval>
+					<defaultAutoCommit>false</defaultAutoCommit>
 				</configuration>
 			</definition>
 		</datasource>
@@ -35,7 +36,8 @@
 				<name>jdbc/WSO2AM_DB</name>
 			</jndiConfig>
 			<definition type="RDBMS">
-				<configuration>  <url>jdbc:mysql://{{ db_host }}:3306/apimgt?autoReconnect=true&amp;relaxAutoCommit=true&amp;</url>
+				<configuration>
+					<url>jdbc:mysql://{{ db_host }}:3306/apimgt?autoReconnect=true&amp;relaxAutoCommit=true&amp;</url>
 					<username>{{ db_username }}</username>
 					<password>{{ db_password }}</password>
 					<driverClassName>com.mysql.jdbc.Driver</driverClassName>
