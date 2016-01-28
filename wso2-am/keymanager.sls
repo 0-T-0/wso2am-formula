@@ -15,7 +15,7 @@ keymanager_confs:
       - archive: unpack-wso2
       - user: wso2-user
 
-/etc/systemd/system/wso2am-keymanager.service:
+/etc/systemd/system/wso2am.service:
   file.managed:
     - source: salt://wso2-am/files/systemd/wso2am-keymanager.service
     - template: jinja
@@ -24,4 +24,6 @@ keymanager_confs:
     - name: wso2am-keymanager
     - enable: True
     - require:
-      - file: /etc/systemd/system/wso2am-keymanager.service
+      - file: /etc/systemd/system/wso2am.service
+    - watch:
+      - file: {{ settings.wso2_root_dir }}/*

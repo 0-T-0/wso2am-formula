@@ -1,10 +1,9 @@
-{% import 'wso2-am/settings.sls' as settings %}
 include:
   - wso2-am/base
 
 gateway_confs:
   file.managed:
-    - name: {{ settings.wso2_root_dir }}/wso2am-1.9.1/repository/conf/api-manager.xml
+    - name: /opt/wso2am-1.9.1/repository/conf/api-manager.xml
     - source: salt://wso2-am/files/publisher/api-manager.xml
     - template: jinja
     - user: wso2
@@ -15,7 +14,7 @@ gateway_confs:
       - archive: unpack-wso2
       - user: wso2-user
 
-/etc/systemd/system/wso2am-publisher.service:
+/etc/systemd/system/wso2am.service:
   file.managed:
     - source: salt://wso2-am/files/systemd/wso2am-publisher.service
     - template: jinja
@@ -25,6 +24,6 @@ gateway_confs:
     - enable: True
     - restart: True
     - require:
-      - file: /etc/systemd/system/wso2am-publisher.service
+      - file: /etc/systemd/system/wso2am.service
     - watch:
-      - file: {{ settings.wso2_root_dir }}/wso2am-1.9.1/*
+      - file: {{ settings.wso2_root_dir }}/*

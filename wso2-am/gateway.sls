@@ -15,7 +15,7 @@ gateway_confs:
       - archive: unpack-wso2
       - user: wso2-user
 
-/etc/systemd/system/wso2am-gateway.service:
+/etc/systemd/system/wso2am.service:
   file.managed:
     - source: salt://wso2-am/files/systemd/wso2am-gateway.service
     - template: jinja
@@ -25,6 +25,6 @@ gateway_confs:
     - enable: True
     - restart: True
     - require:
-      - file: /etc/systemd/system/wso2am-gateway.service
+      - file: /etc/systemd/system/wso2am.service
     - watch:
       - file: {{ settings.wso2_root_dir }}/wso2am-1.9.1/*
